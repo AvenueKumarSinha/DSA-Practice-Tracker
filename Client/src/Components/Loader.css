@@ -1,0 +1,21 @@
+.Loader{
+    height:50px;
+    width:50px;
+    border-radius: 100%;
+    background-color: transparent;
+    border-top: 5px dotted dodgerblue;
+
+    margin: auto;
+    margin-top: 5vh;
+
+    animation: rotation 4s ease 0.5s infinite;
+}
+
+@keyframes rotation {
+    from{
+        rotate: 0;
+    }
+    to{
+        rotate: 360deg;
+    }
+}
