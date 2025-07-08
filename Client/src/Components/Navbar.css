@@ -1,0 +1,49 @@
+#nav{
+    height:8vh;
+    width:100vw;
+    background-color: black;
+    color:white;
+    /* padding-left: 1vw; */
+    /* padding-right: 1vw; */
+    display: flex;
+    border-bottom: 1px solid white;
+}
+
+#nav>ul{
+    display: flex;
+    align-items: center;
+    gap:7vw;
+}
+
+#nav>ul>li{
+    list-style: none;
+}
+
+#LogoNav>img{
+    height:5vh;
+}
+#LogoNav{
+    margin-left: 0.5vw;
+}
+
+#changePassword{
+    cursor: pointer;    
+}
+#changePassword:hover{
+    /* color:rgba(172, 255, 47, 0.749);     */
+    color: rgba(30, 143, 255, 0.806);
+}
+
+#deleteAccount{
+    cursor: pointer;
+}
+#deleteAccount:hover{
+    color:rgba(243, 13, 13, 0.788);
+}
+
+#Logout{
+    cursor: pointer;
+}
+#Logout:hover{
+    color:rgba(254, 254, 4, 0.813);
+}

@@ -1,0 +1,42 @@
+.ProblemsContainer{
+    background-color: rgb(23, 23, 23);
+    height:100vh;
+    width:80vw;
+
+    /* overflow: auto; */
+}
+
+.ProblemsPanel{
+    height:5vh;
+    width:80vw;
+    background-color: transparent;
+    color: rgb(205, 204, 204);
+    display: flex;
+    align-items: center;
+    padding-top: 1.3vh;
+    /* padding-left: 1vw; */
+    /* padding-right: 10vw; */
+    justify-content: space-around;
+}
+
+#AddProblem{
+    border: none;
+    background-color: green;
+    color:white;
+    font-weight: bold;
+    padding: 9px;
+    font-size: 1.2em;
+    border-radius: 10px;
+    cursor: pointer;
+}
+#AddProblem:hover{
+    background-color: rgb(1, 109, 1);
+}
+
+#TopicName{
+    font-size: 2em;
+}
+
+.ProblemsList{
+    margin-top: 3vh;
+}

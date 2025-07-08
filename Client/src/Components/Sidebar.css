@@ -1,0 +1,8 @@
+.panel{
+    height:100vh;
+    width:20vw;
+    background-color: rgb(12, 12, 12);
+    border-right: 1px solid white;
+
+    /* overflow: auto; */
+}

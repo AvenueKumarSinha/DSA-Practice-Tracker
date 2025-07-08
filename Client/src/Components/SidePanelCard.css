@@ -1,0 +1,17 @@
+.SideCardContainer{
+    background-color: black;
+    color: white;
+    height: 6vh;
+    width: 85%;
+    margin: auto;
+    margin-top: 2vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+.SideCardContainer:hover{
+    border:1px solid white;
+}

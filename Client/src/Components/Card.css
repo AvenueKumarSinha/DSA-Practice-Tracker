@@ -1,0 +1,45 @@
+.CardContainer{
+    margin: auto;
+    margin-top: 2vh;
+    height:7vh;
+    width: 80%;
+    background-color: black;
+    border: 1px solid white;
+    /* box-shadow: -1px -2px 0px 0px goldenrod; */
+    color: rgb(168, 168, 168);
+    display: flex;
+    align-items: center;
+    padding-left: 0.25vw;
+    /* gap: 3vw; */
+    gap:5vw;
+}
+
+.CardContainer:hover{
+    border:1px solid goldenrod;
+}
+
+#videoLink>a{
+    color: rgba(253, 46, 46, 0.852);
+}
+
+#textMaterial{
+    color:  rgb(49, 48, 48);
+    /* color: greenyellow; */
+    cursor: pointer;
+}
+
+#notes{
+    cursor: pointer;
+    /* color: brown; */
+}
+
+#star{
+    cursor: pointer;
+    color: rgb(49, 48, 48);
+    /* color: yellow; */
+}
+
+#problemDelete{
+    cursor: pointer;
+    color: rgb(197, 23, 23);
+}
