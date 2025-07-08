@@ -5,6 +5,7 @@ import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 
 import Login from './Components/Login'
 import Signup from './Components/Signup'
+import Dashboard from './Components/Dashboard'
 
 function App() {
 
@@ -16,12 +17,16 @@ function App() {
     {
       path:"/signup",
       element:<Signup/>
+    },
+    {
+      path:"/dashboard",
+      element:<><Dashboard/></>
     }
   ])
 
   return (
     <>
-      <RouterProvider router={router}/>
+        <RouterProvider router={router}/>     
     </>
   )
 }

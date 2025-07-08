@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './Login.css'
 
 import {useForm} from 'react-hook-form'
 import { NavLink } from 'react-router-dom'
 import Loader from './Loader'
 import { useNavigate } from 'react-router-dom'
+import { usernameContext } from '../Context/Context'
 
 const Login = () => {
     const navigate=useNavigate()
+    const {setUsername}=useContext(usernameContext)
 
     const{
         register,
@@ -22,6 +24,7 @@ const Login = () => {
             let res=await r.json()
 
             if(res.success){
+                setUsername(data.username)
                 navigate("/dashboard")
             }else{
                 if(res.userFound){
