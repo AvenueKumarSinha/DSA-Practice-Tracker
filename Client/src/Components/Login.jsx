@@ -9,7 +9,7 @@ import { usernameContext } from '../Context/Context'
 
 const Login = () => {
     const navigate=useNavigate()
-    const {setUsername}=useContext(usernameContext)
+    const {setUsername, setFullname}=useContext(usernameContext)
 
     const{
         register,
@@ -25,6 +25,7 @@ const Login = () => {
 
             if(res.success){
                 setUsername(data.username)
+                setFullname(res.fullname)
                 navigate("/dashboard")
             }else{
                 if(res.userFound){

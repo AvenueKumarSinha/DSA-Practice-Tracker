@@ -4,9 +4,13 @@ import "./index.css";
 import App from "./App.jsx";
 
 import { usernameContext } from "./Context/Context.jsx";
+import {DialogBoxContext} from "./Context/DialogBoxContext.jsx"
 
 const Root = () => {
   const [username, setUsernameState] = useState(localStorage.getItem("username") || null);
+  const [fullname, setFullnameState] = useState(localStorage.getItem("fullname") || null);
+  const [changePassword, setChangePassword]=useState(false)
+  const [deleteAccount, setDeleteAccount]=useState(false)
 
     const setUsername = (name) => {
     if (name) {
@@ -17,10 +21,21 @@ const Root = () => {
     setUsernameState(name);
   };
 
+    const setFullname=(name)=>{
+      if(name){
+        localStorage.setItem("fullname",name)
+      }else{
+        localStorage.removeItem("fullname")
+      }
+      setFullnameState(name)
+    }
+
 
   return(
-    <usernameContext.Provider value={{ username, setUsername }}>
+    <usernameContext.Provider value={{ username, setUsername,fullname,setFullname}}>
+        <DialogBoxContext.Provider value={{changePassword,setChangePassword, deleteAccount, setDeleteAccount}}>
       <App />
+        </DialogBoxContext.Provider>
     </usernameContext.Provider>
   );
 };
