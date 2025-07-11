@@ -18,6 +18,7 @@ const Problems = () => {
   const navigate=useNavigate()
 
   const [cards,setCards]=useState([])
+  const {AddProblemState,setAddProblemState, NotesState, useNotes, Refresh}=useContext(DialogBoxContext)
 
   useEffect(() => {
     async function fetchDataFromDatabase(){
@@ -49,11 +50,10 @@ const Problems = () => {
       }
     }
     fetchDataFromDatabase()
-  }, [])
+  },[Refresh])
   
 
 
-  const {AddProblemState,setAddProblemState, NotesState, useNotes}=useContext(DialogBoxContext)
 
   const handleAddProblem=()=>{
     setAddProblemState(true)

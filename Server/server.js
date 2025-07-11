@@ -145,4 +145,22 @@ app.post("/backendUpdateNote",async(req,res)=>{
     }
 })
 
+app.post("/backendUpdateStatus",async(req,res)=>{
+    try{
+        await ProblemData.updateOne({$and:[{username:req.body.username}, {"problem.problemId":req.body.id}]},{$set:{"problem.$.problemStatus":req.body.status}})
+        return res.status(200).json({success:true})
+    }catch(err){
+        return res.status(500).json({success:false})
+    }
+})
+
+app.delete("/backendDeleteProblem",async(req,res)=>{
+    try{
+        await ProblemData.updateOne({ username: req.body.username },{ $pull: { problem: { problemId: req.body.id } } });
+        return res.status(200).json({success:true})
+    }catch(err){
+        return res.status(500).json({success:false})
+    }
+})
+
 app.listen(PORT,()=>console.log(`Server started at PORT: ${PORT}`))

@@ -14,6 +14,7 @@ const Root = () => {
   const [AddProblemState,setAddProblemState]=useState(false)
   const [NotesState,setNotes]=useState(false)
   const [pid, setpid]=useState()
+  const [Refresh, setRefresh]=useState(false)
 
     const setUsername = (name) => {
     if (name) {
@@ -36,7 +37,7 @@ const Root = () => {
 
   return(
     <usernameContext.Provider value={{ username, setUsername,fullname,setFullname}}>
-        <DialogBoxContext.Provider value={{changePassword,setChangePassword, deleteAccount, setDeleteAccount, AddProblemState,setAddProblemState, NotesState, setNotes, pid, setpid}}>
+        <DialogBoxContext.Provider value={{changePassword,setChangePassword, deleteAccount, setDeleteAccount, AddProblemState,setAddProblemState, NotesState, setNotes, pid, setpid, Refresh,setRefresh}}>
       <App />
         </DialogBoxContext.Provider>
     </usernameContext.Provider>

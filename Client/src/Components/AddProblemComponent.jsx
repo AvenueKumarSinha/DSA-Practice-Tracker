@@ -7,10 +7,12 @@ import { useForm } from 'react-hook-form';
 import { useContext } from 'react';
 import { DialogBoxContext } from '../Context/DialogBoxContext';
 import { usernameContext } from '../Context/Context';
+import { useNavigate } from 'react-router-dom';
 
 const AddProblemComponent = () => {
-    const {setAddProblemState}=useContext(DialogBoxContext)
+    const {setAddProblemState, Refresh, setRefresh}=useContext(DialogBoxContext)
     const {username}=useContext(usernameContext)
+    const navigate=useNavigate()
 
     const handleCancel=()=>{
         setAddProblemState(false)
@@ -25,12 +27,26 @@ const AddProblemComponent = () => {
 
     const onSubmit=async(data)=>{
         try{
+
+            if (data.starred === "true") { //because radio buttons pass as strings by default and not boolean
+              data.starred = true;
+            } else {
+              data.starred = false;
+            }
+            if (data.status === "true") { //because radio buttons pass as strings by default and not boolean
+              data.status = true;
+            } else {
+              data.status = false;
+            }
+
             const r=await fetch("http://localhost:3000/backendAddProblem",{method:'POST',headers:{"Content-Type":"application/json"},body:JSON.stringify(data)})
 
             const res=await r.json()
 
             if(res.success){
                 handleCancel()
+                setRefresh(!Refresh) //to re-render problem list, which is dependent on useEffect which depends on [Refresh]
+                navigate("/dashboard")
             }else{
                 alert("Server not Responding")
                 handleCancel()
