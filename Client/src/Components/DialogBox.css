@@ -117,3 +117,7 @@
     background-color: dodgerblue;
     color:white
 }
+
+.DialogForm>form>.NotesTextArea{
+    height:20vh;
+}

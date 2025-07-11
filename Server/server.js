@@ -107,4 +107,42 @@ app.post("/backendAddProblem",async(req,res)=>{
     }
 })
 
+app.post("/backendInitialData",async(req,res)=>{
+    try{
+        const problems=await ProblemData.findOne({username:req.body.username})
+        return res.status(200).json({success:true, data:problems})
+    }catch(err){
+        return res.status(500).json({success:false})
+    }
+})
+
+app.post("/backendUpdateStarred",async(req,res)=>{
+    try{
+        await ProblemData.updateOne({$and:[{username:req.body.username}, {"problem.problemId":req.body.id}]},{$set:{"problem.$.problemStarred":req.body.starred}})
+        return res.status(200).json({success:true})
+    }catch(err){
+        return res.status(500).json({success:false})
+    }
+})
+
+app.post("/backendCurrNote",async(req,res)=>{
+    try{
+        const target = await ProblemData.findOne({ username: req.body.username });
+        const matchedProblem = target.problem.find(p => p.problemId === req.body.id);
+        return res.status(200).json({ success: true, note: matchedProblem.problemNote });
+    }catch(err){
+        return res.status(500).json({success:false})
+    }
+})
+
+app.post("/backendUpdateNote",async(req,res)=>{
+    try{
+        await ProblemData.updateOne({$and:[{username:req.body.username}, {"problem.problemId":req.body.id}]},{$set:{"problem.$.problemNote":req.body.note}})
+
+        return res.status(200).json({success:true})
+    }catch(err){
+        return res.status(500).json({success:false})
+    }
+})
+
 app.listen(PORT,()=>console.log(`Server started at PORT: ${PORT}`))

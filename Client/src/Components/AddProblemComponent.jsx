@@ -46,7 +46,7 @@ const AddProblemComponent = () => {
       <div className="DialogForm AddProblemSpecialStyling">
         <div className="cancel">
                 <ImCancelCircle size={30} onClick={handleCancel}/>
-            </div>
+        </div>
         <form onSubmit={handleSubmit(onSubmit)}>
             <h1>Add Problem</h1>
             <input {...register("username")} type="text" value={username} disabled hidden/>
