@@ -11,7 +11,7 @@
     align-items: center;
     padding-left: 0.25vw;
     /* gap: 3vw; */
-    gap:5vw;
+    gap:6vw;
 }
 
 .CardContainer:hover{
@@ -22,12 +22,6 @@
     color: rgba(253, 46, 46, 0.852);
 }
 
-#textMaterial{
-    color:  rgb(49, 48, 48);
-    /* color: greenyellow; */
-    cursor: pointer;
-}
-
 #notes{
     cursor: pointer;
     /* color: brown; */
@@ -36,10 +30,34 @@
 #star{
     cursor: pointer;
     color: rgb(49, 48, 48);
-    /* color: yellow; */
 }
 
 #problemDelete{
     cursor: pointer;
     color: rgb(197, 23, 23);
+}
+
+#problemStatus>input{
+    appearance: none;
+    height:15px;
+    width:15px;
+    background-color: white;
+    border-radius: 3px;
+    cursor: pointer;
+    position: relative;
+    margin-left: 0.5vw;
+}
+#problemStatus>input:checked{
+    background-color: orange;
+    color:white;  
+}
+#problemStatus>input:checked::after{
+    content: "✔";
+    position: absolute;
+    bottom: 0.5px;
+    left:1px;
+}
+
+.highlightStar{
+    color: yellow;
 }

@@ -80,4 +80,31 @@ app.put("/backendChangePassword",async(req,res)=>{
     }
 })
 
+app.post("/backendAddProblem",async(req,res)=>{
+    try{
+        const username=req.body.username;
+        const problemIdCounter=(await ProblemData.findOne({username:username})).problemIdCounter
+
+        const problemId=problemIdCounter
+        const problemName=req.body.problemname
+        const problemTopic=req.body.problemtopic
+        const problemCodeLink=req.body.codelink
+        const problemTutorialLink=req.body.tutoriallink
+        const problemNote=req.body.problemnote
+        
+        let problemStarred=false;
+        if(req.body.starred!=null) problemStarred=req.body.starred;
+        let problemStatus=false;
+        if(req.body.status!=null) problemStatus=req.body.status;
+
+        const problemObject={problemId:problemId,problemName:problemName,problemTopic:problemTopic,problemCodeLink:problemCodeLink,problemTutorialLink:problemTutorialLink,problemNote:problemNote,problemStarred:problemStarred,problemStatus:problemStatus}
+
+        await ProblemData.updateOne({username:username},{problemIdCounter:problemIdCounter+1, $push:{problem:problemObject}})
+
+        return res.status(200).json({success:true})
+    }catch(err){
+        return res.status(500).json({success:false})
+    }
+})
+
 app.listen(PORT,()=>console.log(`Server started at PORT: ${PORT}`))

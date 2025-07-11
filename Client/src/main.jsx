@@ -11,6 +11,7 @@ const Root = () => {
   const [fullname, setFullnameState] = useState(localStorage.getItem("fullname") || null);
   const [changePassword, setChangePassword]=useState(false)
   const [deleteAccount, setDeleteAccount]=useState(false)
+  const [AddProblemState,setAddProblemState]=useState(false)
 
     const setUsername = (name) => {
     if (name) {
@@ -33,7 +34,7 @@ const Root = () => {
 
   return(
     <usernameContext.Provider value={{ username, setUsername,fullname,setFullname}}>
-        <DialogBoxContext.Provider value={{changePassword,setChangePassword, deleteAccount, setDeleteAccount}}>
+        <DialogBoxContext.Provider value={{changePassword,setChangePassword, deleteAccount, setDeleteAccount, AddProblemState,setAddProblemState}}>
       <App />
         </DialogBoxContext.Provider>
     </usernameContext.Provider>
