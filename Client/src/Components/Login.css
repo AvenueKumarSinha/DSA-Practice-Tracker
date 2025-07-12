@@ -64,3 +64,16 @@
     border: none;
     cursor: pointer;
 }
+
+
+@media (max-width:840px){
+    .LoginContainer{
+        width:60vw;
+    }
+}
+
+@media (max-width:620px){
+    .LoginContainer{
+        width:80vw;
+    }
+}

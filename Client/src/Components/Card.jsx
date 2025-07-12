@@ -73,11 +73,11 @@ const Card = ({id, name, topic, codeLink, tutorialLink, note, starred, status}) 
       {statusState && <p id="problemStatus" onClick={handleStatus}><input type='checkbox' defaultChecked></input></p>}
       {!statusState && <p id="problemStatus" onClick={handleStatus}><input type='checkbox'></input></p>}
       <p id="problemName">{name}</p>
-      <p id="problemLink"><a href={codeLink} target='_blank'><FaCode size={30}/></a></p>
-      <p id="videoLink"><a href={tutorialLink} target='_blank'><FaYoutube size={30}/></a></p>
-      <p id="notes" onClick={handleNotes}><GrNotes size={30}/></p>
-      <p id="star" onClick={handleStar}><FaStar size={30} className={highlighted?"highlightStar":""}/></p>
-      <p id="problemDelete" onClick={handleDelete}><MdDelete size={30}/></p>
+      <p id="problemLink"><a href={codeLink} target='_blank'><FaCode className='icon' size={30}/></a></p>
+      <p id="videoLink"><a href={tutorialLink} target='_blank'><FaYoutube className='icon' size={30}/></a></p>
+      <p id="notes" onClick={handleNotes}><GrNotes className='icon' size={30}/></p>
+      <p id="star" onClick={handleStar}><FaStar size={30} className={highlighted?"highlightStar icon":"icon"}/></p>
+      <p id="problemDelete" onClick={handleDelete}><MdDelete className='icon' size={30}/></p>
     </div>
   )
 }

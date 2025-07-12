@@ -16,10 +16,6 @@
     border:1px solid white;
 }
 
-.SideCardContainer>p>#delSideIcon{
-    color:red;
-}
-
 .SideCardContainer>#NameOfTopic{
     width: 100%;
     text-align: center;
@@ -30,4 +26,22 @@
 }
 .highlightSide:hover{
     border:1px solid gold;
+}
+
+
+@media (max-width:840px){
+    .SideCardContainer{
+        margin-top: 1vh;
+        height: 10vh;
+    }
+}
+
+@media (max-width:590px){
+    .SideCardContainer>#NameOfTopic{
+        font-size: 0.9em;
+    }
+    .SideCardContainer{
+        margin-top: 2vh;
+        height: 10vh;
+    }
 }

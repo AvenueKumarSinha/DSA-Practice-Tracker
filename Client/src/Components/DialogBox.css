@@ -5,6 +5,8 @@
 
     position: fixed;
     display: flex;
+    
+    z-index: 1;
 }
 
 .DialogForm{
@@ -120,4 +122,32 @@
 
 .DialogForm>form>.NotesTextArea{
     height:20vh;
+}
+
+
+@media (max-width:960px){
+    .DialogForm{
+        width:50vw;
+    }
+    .DialogForm>form>label>input{
+        width:8vw;
+    }
+}
+
+@media (max-width:820px){
+    .DialogForm{
+        width:60vw;
+    }
+    .DialogForm>form>label>input{
+        width:8vw;
+    }
+}
+
+@media (max-width:630px){
+    .DialogForm{
+        width:80vw;
+    }
+    .DialogForm>form>label>input{
+        width:8vw;
+    }
 }

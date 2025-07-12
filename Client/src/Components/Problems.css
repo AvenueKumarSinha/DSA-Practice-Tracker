@@ -3,7 +3,10 @@
     height:100vh;
     width:80vw;
 
-    /* overflow: auto; */
+    overflow-y: auto;
+}
+.ProblemsContainer::-webkit-scrollbar{
+    display: none;
 }
 
 .ProblemsPanel{
@@ -14,8 +17,6 @@
     display: flex;
     align-items: center;
     padding-top: 1.3vh;
-    /* padding-left: 1vw; */
-    /* padding-right: 10vw; */
     justify-content: space-around;
 }
 
@@ -35,6 +36,10 @@
 
 #TopicName{
     font-size: 2em;
+    overflow-y: auto;
+}
+#TopicName::-webkit-scrollbar{
+    display: none;
 }
 
 .ProblemsList{
@@ -44,4 +49,23 @@
 .ProblemsContainer>.ProblemsPanel>#TopicName{
     width:40vw;
     text-align: center;
+}
+
+
+@media (max-width:840px){
+    #TopicName{
+        font-size: 1.5em;
+    }
+    #AddProblem{
+        padding:6px;
+    }
+}
+
+@media (max-width:590px){
+    #TopicName{
+        font-size: 1.2em;
+    }
+    #AddProblem{
+        padding: 5px;
+    }
 }

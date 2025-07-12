@@ -3,8 +3,6 @@
     width:100vw;
     background-color: black;
     color:white;
-    /* padding-left: 1vw; */
-    /* padding-right: 1vw; */
     display: flex;
     border-bottom: 1px solid white;
 }
@@ -46,4 +44,43 @@
 }
 #Logout:hover{
     color:rgba(254, 254, 4, 0.813);
+}
+
+
+@media (max-width:1260px){
+    nav>ul{
+        gap:3vw;
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width:1000px){
+    #nav>ul{
+        gap:3vw;
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width:843px){
+    #nav>ul{
+        gap:0.9vw;
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width:670px){
+    #nav>ul{
+        gap:1vw;
+        font-size: 0.7em;
+    }
+}
+
+@media (max-width:590px){
+    #nav>ul{
+        gap:0.5vw;
+        font-size: 0.7em;
+    }
+    #nav>ul>#Heading>h1{
+        font-size: 1em;
+    }
 }
