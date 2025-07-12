@@ -40,3 +40,8 @@
 .ProblemsList{
     margin-top: 3vh;
 }
+
+.ProblemsContainer>.ProblemsPanel>#TopicName{
+    width:40vw;
+    text-align: center;
+}

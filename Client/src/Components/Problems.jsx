@@ -17,8 +17,7 @@ const Problems = () => {
   const {username}=useContext(usernameContext)
   const navigate=useNavigate()
 
-  const [cards,setCards]=useState([])
-  const {AddProblemState,setAddProblemState, NotesState, useNotes, Refresh}=useContext(DialogBoxContext)
+  const {AddProblemState,setAddProblemState, NotesState, useNotes, Refresh, cards, setCards, currentTopic}=useContext(DialogBoxContext)
 
   useEffect(() => {
     async function fetchDataFromDatabase(){
@@ -31,7 +30,7 @@ const Problems = () => {
             fetchedCards = res.data.problem.map((object) => ({
             id: object.problemId,
             name: object.problemName,
-            topic: object.problemTopic,
+            topic: object.problemTopic.split(/[^a-zA-Z0-9_ ]+/).concat("All Topics"),
             codeLink: object.problemCodeLink,
             tutorialLink: object.problemTutorialLink,
             note: object.problemNote,
@@ -66,12 +65,12 @@ const Problems = () => {
 
       <div className='ProblemsContainer'>
         <div className="ProblemsPanel">
-          <div id="TopicName">All Topics</div>
+          <div id="TopicName">{currentTopic}</div>
           <div><button id="AddProblem" onClick={handleAddProblem}>Add Problem</button></div>
         </div>
         <div className="ProblemsList">
           {cards.map((card) => (
-          <Card key={card.id} id={card.id} name={card.name} topic={card.topic} codeLink={card.codeLink} tutorialLink={card.tutorialLink} note={card.note} starred={card.starred} status={card.status} />
+           card.topic.includes(currentTopic) && <Card key={card.id} id={card.id} name={card.name} topic={card.topic} codeLink={card.codeLink} tutorialLink={card.tutorialLink} note={card.note} starred={card.starred} status={card.status} />
         ))}
         </div>
       </div>

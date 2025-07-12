@@ -1,10 +1,20 @@
 import React from 'react'
 import "./SidePanelCard.css"
 
-const SidePanelCard = () => {
+import { DialogBoxContext } from '../Context/DialogBoxContext';
+import { useContext } from 'react';
+import { useState } from 'react';
+
+const SidePanelCard = ({topic}) => {
+  const {setCurrentTopic, currentTopic}=useContext(DialogBoxContext)
+
+  const handleSidePanel=()=>{
+    setCurrentTopic(topic)
+  }
+
   return (
-    <div className='SideCardContainer'>
-      <p id="NameOfTopic">All Topics</p>
+    <div className={currentTopic===topic?"SideCardContainer highlightSide":"SideCardContainer"} onClick={handleSidePanel}>
+      <p id="NameOfTopic">{topic}</p>
     </div>
   )
 }

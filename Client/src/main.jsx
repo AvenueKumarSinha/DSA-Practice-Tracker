@@ -15,6 +15,8 @@ const Root = () => {
   const [NotesState,setNotes]=useState(false)
   const [pid, setpid]=useState()
   const [Refresh, setRefresh]=useState(false)
+  const [cards,setCards]=useState([])
+  const [currentTopic, setCurrentTopic]=useState("All Topics")
 
     const setUsername = (name) => {
     if (name) {
@@ -37,7 +39,7 @@ const Root = () => {
 
   return(
     <usernameContext.Provider value={{ username, setUsername,fullname,setFullname}}>
-        <DialogBoxContext.Provider value={{changePassword,setChangePassword, deleteAccount, setDeleteAccount, AddProblemState,setAddProblemState, NotesState, setNotes, pid, setpid, Refresh,setRefresh}}>
+        <DialogBoxContext.Provider value={{changePassword,setChangePassword, deleteAccount, setDeleteAccount, AddProblemState,setAddProblemState, NotesState, setNotes, pid, setpid, Refresh,setRefresh, cards, setCards, currentTopic, setCurrentTopic}}>
       <App />
         </DialogBoxContext.Provider>
     </usernameContext.Provider>

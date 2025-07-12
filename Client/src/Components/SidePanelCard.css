@@ -7,11 +7,27 @@
     margin-top: 2vh;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     cursor: pointer;
     font-size: 1.2em;
 }
 
 .SideCardContainer:hover{
     border:1px solid white;
+}
+
+.SideCardContainer>p>#delSideIcon{
+    color:red;
+}
+
+.SideCardContainer>#NameOfTopic{
+    width: 100%;
+    text-align: center;
+}
+
+.highlightSide{
+    border:1px solid gold;
+}
+.highlightSide:hover{
+    border:1px solid gold;
 }
