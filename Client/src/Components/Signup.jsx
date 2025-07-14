@@ -18,7 +18,7 @@ const Signup = () => {
 
   const onSubmit = async (data) => {
     try{
-        let r = await fetch("http://localhost:3000/backendSignUp", {
+        let r = await fetch(`${import.meta.env.VITE_BACKEND_URL}/backendSignUp`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -47,17 +47,10 @@ const Signup = () => {
         </p>
 
         <form onSubmit={handleSubmit(onSubmit)}>
-          <input {...register("username")} type="text" placeholder="Username" />
+          <input {...register("username")} type="text" placeholder="Username" required />
           <input
-            {...register("fullname")}
-            type="text"
-            placeholder="Full Name"
-          />
-          <input
-            {...register("password")}
-            type="password"
-            placeholder="Password"
-          />
+            {...register("fullname")} type="text" placeholder="Full Name" required />
+          <input {...register("password")} type="password" placeholder="Password" required />
           <button disabled={isSubmitting} type="submit">
             Sign Up
           </button>

@@ -20,7 +20,7 @@ const Login = () => {
 
     const onSubmit=async(data)=>{
         try{
-            const r=await fetch("http://localhost:3000/backendLogin",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(data)})
+            const r=await fetch(`${import.meta.env.VITE_BACKEND_URL}/backendLogin`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(data)})
             let res=await r.json()
 
             if(res.success){
@@ -47,8 +47,8 @@ const Login = () => {
             <p id='signup'>Don't have an account yet? <NavLink to="/signup">Sign up</NavLink></p>
 
             <form onSubmit={handleSubmit(onSubmit)}>
-                <input {...register("username")} type='text' placeholder='Username'/>
-                <input {...register("password")} type='password' placeholder='Password'/>
+                <input {...register("username")} type='text' placeholder='Username' required />
+                <input {...register("password")} type='password' placeholder='Password' required />
                 <button disabled={isSubmitting} type='submit'>Login</button>
                 {isSubmitting && <Loader/>}
             </form>

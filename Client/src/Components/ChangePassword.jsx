@@ -20,7 +20,7 @@ const ChangePassword = () => {
 
   const onSubmit=async(data)=>{
     try{
-        const r=await fetch("http://localhost:3000/backendChangePassword",{method:'PUT',headers:{"Content-Type":"application/json"},body:JSON.stringify(data)})
+        const r=await fetch(`${import.meta.env.VITE_BACKEND_URL}/backendChangePassword`,{method:'PUT',headers:{"Content-Type":"application/json"},body:JSON.stringify(data)})
 
         const res=await r.json()
 

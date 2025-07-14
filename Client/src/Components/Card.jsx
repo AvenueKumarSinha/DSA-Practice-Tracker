@@ -24,7 +24,7 @@ const Card = ({id, name, topic, codeLink, tutorialLink, note, starred, status}) 
 
   const handleStar=async()=>{
     try{
-      const r=await fetch("http://localhost:3000/backendUpdateStarred",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({"username":username,"id":id,"starred": !highlighted})})
+      const r=await fetch(`${import.meta.env.VITE_BACKEND_URL}/backendUpdateStarred`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({"username":username,"id":id,"starred": !highlighted})})
 
       const res=await r.json()
       if(res.success) setHighlighted(!highlighted)
@@ -41,7 +41,7 @@ const Card = ({id, name, topic, codeLink, tutorialLink, note, starred, status}) 
 
   const handleStatus=async()=>{
     try{
-      const r=await fetch("http://localhost:3000/backendUpdateStatus",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({"username":username,"id":id,"status": !statusState})})
+      const r=await fetch(`${import.meta.env.VITE_BACKEND_URL}/backendUpdateStatus`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({"username":username,"id":id,"status": !statusState})})
 
       const res=await r.json()
       if(res.success) setStatusState(!statusState)
@@ -54,7 +54,7 @@ const Card = ({id, name, topic, codeLink, tutorialLink, note, starred, status}) 
   const handleDelete=async()=>{
     if(confirm("Are you Sure?")){
       try{
-        const r=await fetch("http://localhost:3000/backendDeleteProblem",{method:"DELETE",headers:{"Content-Type":"application/json"},body:JSON.stringify({"username":username,"id":id})})
+        const r=await fetch(`${import.meta.env.VITE_BACKEND_URL}/backendDeleteProblem`,{method:"DELETE",headers:{"Content-Type":"application/json"},body:JSON.stringify({"username":username,"id":id})})
 
         const res=await r.json()
 

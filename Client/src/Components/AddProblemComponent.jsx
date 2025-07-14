@@ -39,7 +39,7 @@ const AddProblemComponent = () => {
               data.status = false;
             }
 
-            const r=await fetch("http://localhost:3000/backendAddProblem",{method:'POST',headers:{"Content-Type":"application/json"},body:JSON.stringify(data)})
+            const r=await fetch(`${import.meta.env.VITE_BACKEND_URL}/backendAddProblem`,{method:'POST',headers:{"Content-Type":"application/json"},body:JSON.stringify(data)})
 
             const res=await r.json()
 

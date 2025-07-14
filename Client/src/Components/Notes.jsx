@@ -18,7 +18,7 @@ const Notes = () => {
     useEffect(() => {
       async function getCurrNote(){
         try{
-            const r=await fetch("http://localhost:3000/backendCurrNote",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({"username":username,"id":pid})})
+            const r=await fetch(`${import.meta.env.VITE_BACKEND_URL}/backendCurrNote`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({"username":username,"id":pid})})
 
             const res=await r.json()
 
@@ -43,7 +43,7 @@ const Notes = () => {
 
     const onSubmit=async(data)=>{
         try{
-            const r=await fetch("http://localhost:3000/backendUpdateNote",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({"username":username,"id":pid,"note": data.problemnote})})
+            const r=await fetch(`${import.meta.env.VITE_BACKEND_URL}/backendUpdateNote`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({"username":username,"id":pid,"note": data.problemnote})})
 
             const res=await r.json()
 

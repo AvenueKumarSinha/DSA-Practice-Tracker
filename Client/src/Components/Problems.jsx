@@ -22,7 +22,7 @@ const Problems = () => {
   useEffect(() => {
     async function fetchDataFromDatabase(){
       try{
-        const r=await fetch("http://localhost:3000/backendInitialData", {method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({"username":username})})
+        const r=await fetch(`${import.meta.env.VITE_BACKEND_URL}/backendInitialData`, {method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({"username":username})})
         const res=await r.json()
 
         let fetchedCards;

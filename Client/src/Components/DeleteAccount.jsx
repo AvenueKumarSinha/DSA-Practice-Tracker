@@ -27,7 +27,7 @@ const DeleteAccount = () => {
 
     const onSubmit=async(data)=>{
         try{
-        const r=await fetch("http://localhost:3000/backendDeleteAccount",{method:'DELETE',headers:{"Content-Type":"application/json"},body:JSON.stringify(data)})
+        const r=await fetch(`${import.meta.env.VITE_BACKEND_URL}/backendDeleteAccount`,{method:'DELETE',headers:{"Content-Type":"application/json"},body:JSON.stringify(data)})
 
         const res=await r.json()
 

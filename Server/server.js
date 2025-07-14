@@ -6,13 +6,15 @@ import bcrypt from 'bcrypt'
 import {UserData} from "./models/user.js"
 import {ProblemData} from "./models/problems.js"
 
+import dotenv from 'dotenv'
+dotenv.config()
+
 const app=express()
-const PORT=3000
 
 app.use(cors())
 app.use(express.json())
 
-await mongoose.connect("mongodb://127.0.0.1:27017/DSAPracticeTracker")
+await mongoose.connect(process.env.MONGO_URI)
 
 app.post("/backendSignUp",async(req,res)=>{
     try{
@@ -163,4 +165,4 @@ app.delete("/backendDeleteProblem",async(req,res)=>{
     }
 })
 
-app.listen(PORT,()=>console.log(`Server started at PORT: ${PORT}`))
+app.listen(process.env.PORT,()=>console.log(`Server started at PORT: ${process.env.PORT}`))
