@@ -43,7 +43,7 @@ const Navbar = () => {
 
             <nav id="nav">
             <ul>
-                <li id="LogoNav"><img src="../Logo.jpg"></img></li>
+                <li id="LogoNav"><img src="/Logo.jpg"></img></li>
                 <li id="Heading"><h1>DSA Practice Tracker</h1></li>
                 <li id='fullname'>Welcome, <b>{fullname}</b></li>
                 <li id="changePassword" onClick={handleChangePassword}>Change Password <BiSolidPencil size={20}/></li>
