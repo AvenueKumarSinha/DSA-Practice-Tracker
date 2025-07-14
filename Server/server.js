@@ -11,7 +11,11 @@ dotenv.config()
 
 const app=express()
 
-app.use(cors())
+app.use(cors({
+  origin: 'https://dsa-practice-tracker.onrender.com',
+  credentials: true,
+}));
+
 app.use(express.json())
 
 await mongoose.connect(process.env.MONGO_URI)
